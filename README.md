@@ -38,4 +38,37 @@ A mobile-first geography learning app for children aged 4–6. Explore **144 cou
 | 🚩 Flag | Fun fact about the flag |
 | 🏙️ Capital | Interesting capital city fact |
 | 👥 People | Population and languages |
-| 🍜 Food | 4
+| 🍜 Food | 4 kid-friendly local dishes |
+| 🎭 Culture | How people live and celebrate |
+| 🏆 Known For | What makes the country famous |
+| ⭐ Special | One amazing unique fact |
+| 📖 Stamp | Collect your passport stamp! |
+
+4. **Collect your passport stamp** and move on to the next country!
+
+---
+
+## 🌍 Countries by Continent
+
+| Continent | Countries |
+|-----------|-----------|
+| 🌍 Africa | 34 |
+| 🌏 Asia | 35 |
+| 🌍 Europe | 35 |
+| 🌎 North America | 16 |
+| 🌎 South America | 12 |
+| 🌏 Oceania | 12 |
+| **Total** | **144** |
+
+---
+
+## 🛠️ Tech
+
+- Single `index.html` file — no frameworks, no build step needed
+- Vanilla JavaScript + CSS
+- Wikipedia API for live photos
+- Progress saved to browser (`localStorage`)
+
+---
+
+*Made with ❤️ for curious little explorers.*
