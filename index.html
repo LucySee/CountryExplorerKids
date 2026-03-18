@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Country Explorer Kids - Fun interactive world geography for kids aged 4-6. Explore 50 countries, learn flags, capitals and fun facts with Flutter the butterfly!"/>
+<meta name="description" content="Country Explorer Kids - Fun interactive world geography for kids aged 4-6. Explore 50 countries, learn flags, capitals and fun facts!"/>
 <meta name="theme-color" content="#1a1a2e"/>
 <meta property="og:title" content="Country Explorer Kids 🗺️"/>
-<meta property="og:description" content="Explore 50 countries, learn flags, capitals & fun facts with Flutter the butterfly! 🦋🚂"/>
+<meta property="og:description" content="Explore 50 countries, learn flags, capitals & fun facts! 🦋🚂"/>
 <link rel="manifest" href="manifest.json"/>
 <title>Country Explorer Kids 🗺️</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
@@ -15,7 +15,6 @@
 body{min-height:100vh;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 100%);font-family:'Fredoka One',cursive;color:white;overflow-x:hidden}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes chug{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-@keyframes puff{0%{transform:scale(.5);opacity:.8}100%{transform:scale(2) translateY(-20px);opacity:0}}
 @keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.8}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes stamp{0%{transform:scale(0) rotate(-20deg)}60%{transform:scale(1.2) rotate(5deg)}100%{transform:scale(1) rotate(0)}}
@@ -28,7 +27,6 @@ body{min-height:100vh;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#
 .nav-btn{border:none;border-radius:11px;padding:6px 12px;color:white;cursor:pointer;font-size:12px;font-family:'Nunito',sans-serif;font-weight:700;transition:all .2s}
 .nav-btn:hover{opacity:.82;transform:scale(1.04)}
 .counter{background:rgba(255,215,0,.13);border:2px solid gold;border-radius:18px;padding:3px 11px;font-size:12px;font-family:'Nunito',sans-serif;font-weight:800}
-
 #map-view{padding:14px 13px 36px}
 .continent-pills{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
 .pill{border-radius:14px;padding:4px 11px;cursor:pointer;display:flex;align-items:center;gap:5px;font-size:11px;font-family:'Nunito',sans-serif;font-weight:700;transition:all .2s;border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.07)}
@@ -40,7 +38,6 @@ body{min-height:100vh;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#
 .card-thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .5s}
 .card-thumb .fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:30px}
 .card-info{padding:8px 7px 10px;text-align:center}
-
 #country-view{max-width:480px;margin:0 auto;padding:14px 14px 36px;display:flex;flex-direction:column;align-items:center;gap:14px}
 .step-card{animation:fadeUp .4s ease forwards;border-radius:26px;overflow:hidden;width:100%}
 .photo-wrap{width:100%;position:relative;min-height:200px;overflow:hidden}
@@ -57,7 +54,6 @@ body{min-height:100vh;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#
 .dots{display:flex;gap:7px}
 .dot{width:9px;height:9px;border-radius:50%;transition:background .3s}
 .back-btn{background:transparent;border:1px solid rgba(255,255,255,.22);border-radius:11px;padding:6px 16px;color:rgba(255,255,255,.6);cursor:pointer;font-size:12px;font-family:'Nunito',sans-serif}
-
 #passport-view{padding:18px 14px;max-width:660px;margin:0 auto}
 .passport-book{background:linear-gradient(135deg,#1e3a5f,#0a1628);border:3px solid #c9a84c;border-radius:24px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
 .stamp-grid{display:flex;flex-wrap:wrap;gap:9px}
@@ -100,7 +96,7 @@ for(let i=0;i<20;i++){
 <!-- COUNTRY VIEW -->
 <div id="country-view" style="display:none">
   <div style="position:relative">
-    <svg id="train-svg" viewBox="0 0 120 60" width="120" height="60" style="filter:drop-shadow(2px 4px 8px rgba(0,0,0,.4));animation:chug .5s ease-in-out infinite">
+    <svg viewBox="0 0 120 60" width="120" height="60" style="filter:drop-shadow(2px 4px 8px rgba(0,0,0,.4));animation:chug .5s ease-in-out infinite">
       <rect x="2" y="15" width="75" height="35" rx="8" id="train-body" fill="#ff6b35"/>
       <rect x="60" y="20" width="30" height="25" rx="6" id="train-cab" fill="#ff6b35"/>
       <rect x="65" y="8" width="10" height="15" rx="3" fill="#555"/>
@@ -112,16 +108,7 @@ for(let i=0;i<20;i++){
       <circle cx="88" cy="52" r="7" fill="#333" stroke="#666" stroke-width="2"/><circle cx="88" cy="52" r="3" fill="#888"/>
     </svg>
   </div>
-  <div id="loading-card" style="background:rgba(255,255,255,.07);border-radius:24px;padding:26px 32px;text-align:center;font-family:'Nunito',sans-serif;width:100%">
-    <div style="font-size:42px;animation:float 1s ease-in-out infinite">🦋</div>
-    <div style="margin-top:10px;font-size:16px" id="loading-text">Loading...</div>
-    <div style="font-size:12px;opacity:.55;margin-top:5px">Loading facts & photos! 🚂💨</div>
-  </div>
-  <div id="error-card" style="display:none;background:rgba(255,80,80,.18);border-radius:20px;padding:20px;text-align:center;font-family:'Nunito',sans-serif;width:100%">
-    <div id="error-text"></div>
-    <br><button onclick="retryVisit()" style="margin-top:10px;background:#ff6b35;border:none;border-radius:12px;color:white;padding:9px 18px;cursor:pointer;font-size:14px;font-family:'Nunito',sans-serif;font-weight:700">Try Again 🔄</button>
-  </div>
-  <div id="step-container" style="display:none;width:100%;flex-direction:column;align-items:center;gap:14px"></div>
+  <div id="step-container" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:14px"></div>
   <button class="back-btn" onclick="showView('map')">← Back to Map</button>
 </div>
 
@@ -156,69 +143,468 @@ const CONTINENT_COLORS={Africa:"#f59e0b",Asia:"#ef4444",Europe:"#3b82f6","North 
 const CONTINENT_GEMS={Africa:"💛",Asia:"❤️",Europe:"💙","North America":"💚","South America":"💜",Oceania:"🩵"};
 
 const COUNTRIES=[
-  {name:"Nigeria",capital:"Abuja",continent:"Africa",flag:"🇳🇬",color:"#008751",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Zuma_Rock.jpg/640px-Zuma_Rock.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Pretoria_union_buildings.jpg/640px-Pretoria_union_buildings.jpg"},
-  {name:"Egypt",capital:"Cairo",continent:"Africa",flag:"🇪🇬",color:"#ce1126",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/All_Gizah_Pyramids.jpg/640px-All_Gizah_Pyramids.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Cairo_skyline_2010.jpg/640px-Cairo_skyline_2010.jpg"},
-  {name:"South Africa",capital:"Pretoria",continent:"Africa",flag:"🇿🇦",color:"#007a4d",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Table_Mountain_DavidDennis.jpg/640px-Table_Mountain_DavidDennis.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Pretoria_union_buildings.jpg/640px-Pretoria_union_buildings.jpg"},
-  {name:"Kenya",capital:"Nairobi",continent:"Africa",flag:"🇰🇪",color:"#006600",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Maasai_Mara_Landscape.JPG/640px-Maasai_Mara_Landscape.JPG",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Nairobi_satellites.jpg/640px-Nairobi_satellites.jpg"},
-  {name:"Ghana",capital:"Accra",continent:"Africa",flag:"🇬🇭",color:"#fcd116",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Cape_Coast_Castle.jpg/640px-Cape_Coast_Castle.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Accra_Ghana.jpg/640px-Accra_Ghana.jpg"},
-  {name:"Morocco",capital:"Rabat",continent:"Africa",flag:"🇲🇦",color:"#c1272d",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Marrakesh_-_Djema_el-Fna_-_panoramio_%281%29.jpg/640px-Marrakesh_-_Djema_el-Fna_-_panoramio_%281%29.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Rabat_Hassan_Tower02.jpg/640px-Rabat_Hassan_Tower02.jpg"},
-  {name:"Ethiopia",capital:"Addis Ababa",continent:"Africa",flag:"🇪🇹",color:"#078930",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lalibela.jpg/640px-Lalibela.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Meskel_Square%2C_Addis_Ababa.jpg/640px-Meskel_Square%2C_Addis_Ababa.jpg"},
-  {name:"Tanzania",capital:"Dodoma",continent:"Africa",flag:"🇹🇿",color:"#1eb53a",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Kilimanjaro_from_amboseli.jpg/640px-Kilimanjaro_from_amboseli.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Dodoma_Tanzania.jpg/640px-Dodoma_Tanzania.jpg"},
-  {name:"Senegal",capital:"Dakar",continent:"Africa",flag:"🇸🇳",color:"#00853f",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Senegal-Dakar-skyline.jpg/640px-Senegal-Dakar-skyline.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Dakar_Corniche.jpg/640px-Dakar_Corniche.jpg"},
-  {name:"Uganda",capital:"Kampala",continent:"Africa",flag:"🇺🇬",color:"#fcdc04",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Mountain_gorilla_Bwindi.jpg/640px-Mountain_gorilla_Bwindi.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Kampala_from_Old_Kampala.jpg/640px-Kampala_from_Old_Kampala.jpg"},
-  {name:"China",capital:"Beijing",continent:"Asia",flag:"🇨🇳",color:"#de2910",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/20090529_great_wall_8248.jpg/640px-20090529_great_wall_8248.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Forbidden_City_Beijing_Shenwumen_Gate.JPG/640px-Forbidden_City_Beijing_Shenwumen_Gate.JPG"},
-  {name:"Japan",capital:"Tokyo",continent:"Asia",flag:"🇯🇵",color:"#bc002d",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Fuji_san_from_Yamanakako_2004-10-30.jpg/640px-Fuji_san_from_Yamanakako_2004-10-30.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/640px-Skyscrapers_of_Shinjuku_2009_January.jpg"},
-  {name:"India",capital:"New Delhi",continent:"Asia",flag:"🇮🇳",color:"#ff9933",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Taj_Mahal%2C_Agra%2C_India_edit3.jpg/640px-Taj_Mahal%2C_Agra%2C_India_edit3.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/India_Gate_in_New_Delhi_03-2016.jpg/640px-India_Gate_in_New_Delhi_03-2016.jpg"},
-  {name:"South Korea",capital:"Seoul",continent:"Asia",flag:"🇰🇷",color:"#003478",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Gyeongbokgung.jpg/640px-Gyeongbokgung.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Seoul_from_Namsan_October_2017.jpg/640px-Seoul_from_Namsan_October_2017.jpg"},
-  {name:"Thailand",capital:"Bangkok",continent:"Asia",flag:"🇹🇭",color:"#a51931",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Wat_Phra_Kaew%2C_Bangkok.jpg/640px-Wat_Phra_Kaew%2C_Bangkok.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Bangkok_Montage.jpg/640px-Bangkok_Montage.jpg"},
-  {name:"Indonesia",capital:"Jakarta",continent:"Asia",flag:"🇮🇩",color:"#ce1126",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Bali_Indonesia_%282%29.jpg/640px-Bali_Indonesia_%282%29.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Jakarta_Skyline_2017.jpg/640px-Jakarta_Skyline_2017.jpg"},
-  {name:"Vietnam",capital:"Hanoi",continent:"Asia",flag:"🇻🇳",color:"#da251d",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Ha_Long_Bay%2C_Vietnam.jpg/640px-Ha_Long_Bay%2C_Vietnam.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Hoan_Kiem_Lake_Hanoi.jpg/640px-Hoan_Kiem_Lake_Hanoi.jpg"},
-  {name:"Saudi Arabia",capital:"Riyadh",continent:"Asia",flag:"🇸🇦",color:"#006c35",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Madain_Saleh_Tombs.jpg/640px-Madain_Saleh_Tombs.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Kingdom_Centre_Riyadh.jpg/640px-Kingdom_Centre_Riyadh.jpg"},
-  {name:"Turkey",capital:"Ankara",continent:"Asia",flag:"🇹🇷",color:"#e30a17",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Hagia_Sophia_Mars_2013.jpg/640px-Hagia_Sophia_Mars_2013.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Ankara_Montaj.jpg/640px-Ankara_Montaj.jpg"},
-  {name:"Philippines",capital:"Manila",continent:"Asia",flag:"🇵🇭",color:"#0038a8",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Chocolate_Hills_overview.JPG/640px-Chocolate_Hills_overview.JPG",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Manila_montage.jpg/640px-Manila_montage.jpg"},
-  {name:"Nepal",capital:"Kathmandu",continent:"Asia",flag:"🇳🇵",color:"#003893",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg/640px-Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Boudhanath_stupa.jpg/640px-Boudhanath_stupa.jpg"},
-  {name:"Sri Lanka",capital:"Colombo",continent:"Asia",flag:"🇱🇰",color:"#8d153a",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Sigiriya.jpg/640px-Sigiriya.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Colombo_montage_2.jpg/640px-Colombo_montage_2.jpg"},
-  {name:"UAE",capital:"Abu Dhabi",continent:"Asia",flag:"🇦🇪",color:"#00732f",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Dubai_Skyline_at_Night.jpg/640px-Dubai_Skyline_at_Night.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sheikh_Zayed_Grand_Mosque_-_Abu_Dhabi.jpg/640px-Sheikh_Zayed_Grand_Mosque_-_Abu_Dhabi.jpg"},
-  {name:"Pakistan",capital:"Islamabad",continent:"Asia",flag:"🇵🇰",color:"#01411c",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Badshahi_Mosque_front.jpg/640px-Badshahi_Mosque_front.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Faisal_Mosque_Islamabad.jpg/640px-Faisal_Mosque_Islamabad.jpg"},
-  {name:"Israel",capital:"Jerusalem",continent:"Asia",flag:"🇮🇱",color:"#0038b8",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Dome_of_the_rock_Jerusalem.jpg/640px-Dome_of_the_rock_Jerusalem.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Jerusalem-2013%282%29.jpg/640px-Jerusalem-2013%282%29.jpg"},
-  {name:"Bangladesh",capital:"Dhaka",continent:"Asia",flag:"🇧🇩",color:"#006a4e",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Sundarbans_Tiger.jpg/640px-Sundarbans_Tiger.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Dhaka_Skyline_2018.jpg/640px-Dhaka_Skyline_2018.jpg"},
-  {name:"France",capital:"Paris",continent:"Europe",flag:"🇫🇷",color:"#002395",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/640px-Tour_Eiffel_Wikimedia_Commons.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Paris_Night.jpg/640px-Paris_Night.jpg"},
-  {name:"Germany",capital:"Berlin",continent:"Europe",flag:"🇩🇪",color:"#ffcc00",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Neuschwanstein_Castle_SW_view.jpg/640px-Neuschwanstein_Castle_SW_view.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Brandenburger_Tor_abends.jpg/640px-Brandenburger_Tor_abends.jpg"},
-  {name:"Italy",capital:"Rome",continent:"Europe",flag:"🇮🇹",color:"#009246",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg/640px-Colosseum_in_Rome%2C_Italy_-_April_2007.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/640px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg"},
-  {name:"Spain",capital:"Madrid",continent:"Europe",flag:"🇪🇸",color:"#c60b1e",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Sagrada_Familia_01.jpg/640px-Sagrada_Familia_01.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Madrid_calle_Gran_Via_3.jpg/640px-Madrid_calle_Gran_Via_3.jpg"},
-  {name:"United Kingdom",capital:"London",continent:"Europe",flag:"🇬🇧",color:"#012169",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Big_Ben_from_the_south%2C_Victoria_Embankment.jpg/640px-Big_Ben_from_the_south%2C_Victoria_Embankment.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/London_Eye_2011.jpg/640px-London_Eye_2011.jpg"},
-  {name:"Greece",capital:"Athens",continent:"Europe",flag:"🇬🇷",color:"#0d5eaf",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/The_Parthenon_in_Athens.jpg/640px-The_Parthenon_in_Athens.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Athens_Syntagma_square.jpg/640px-Athens_Syntagma_square.jpg"},
-  {name:"Portugal",capital:"Lisbon",continent:"Europe",flag:"🇵🇹",color:"#006600",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Belem_Tower_June_2013-1.jpg/640px-Belem_Tower_June_2013-1.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Lisboa_montagem.jpg/640px-Lisboa_montagem.jpg"},
-  {name:"Netherlands",capital:"Amsterdam",continent:"Europe",flag:"🇳🇱",color:"#ae1c28",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Keukenhof_Lisse_04.jpg/640px-Keukenhof_Lisse_04.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Amsterdam_September_2011_%284%29.jpg/640px-Amsterdam_September_2011_%284%29.jpg"},
-  {name:"Sweden",capital:"Stockholm",continent:"Europe",flag:"🇸🇪",color:"#006aa7",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Stockholm_-_Riddarholmen_%28CanonEOS_DSLR%29.jpg/640px-Stockholm_-_Riddarholmen_%28CanonEOS_DSLR%29.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Stockholm_Old_Town.jpg/640px-Stockholm_Old_Town.jpg"},
-  {name:"Norway",capital:"Oslo",continent:"Europe",flag:"🇳🇴",color:"#ef2b2d",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Geiranger_fjord%2C_Norway.jpg/640px-Geiranger_fjord%2C_Norway.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Oslo_Opera_House%2C_Norway.jpg/640px-Oslo_Opera_House%2C_Norway.jpg"},
-  {name:"United States",capital:"Washington D.C.",continent:"North America",flag:"🇺🇸",color:"#b22234",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Grand_Canyon_Horse_Shoe_Bend_MC.jpg/640px-Grand_Canyon_Horse_Shoe_Bend_MC.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Lincoln_Memorial_reflection_on_water.jpg/640px-Lincoln_Memorial_reflection_on_water.jpg"},
-  {name:"Canada",capital:"Ottawa",continent:"North America",flag:"🇨🇦",color:"#ff0000",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Niagara_Falls_fromCanadianSide_February2018.jpg/640px-Niagara_Falls_fromCanadianSide_February2018.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Parliament_Hill_Ottawa_Ontario_Canada.jpg/640px-Parliament_Hill_Ottawa_Ontario_Canada.jpg"},
-  {name:"Mexico",capital:"Mexico City",continent:"North America",flag:"🇲🇽",color:"#006847",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Chichen_Itza_3.jpg/640px-Chichen_Itza_3.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Angel_de_la_independencia_Mexico_City.jpg/640px-Angel_de_la_independencia_Mexico_City.jpg"},
-  {name:"Cuba",capital:"Havana",continent:"North America",flag:"🇨🇺",color:"#002a8f",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Havana_from_Cabana.jpg/640px-Havana_from_Cabana.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Malecon_Havana_Cuba.jpg/640px-Malecon_Havana_Cuba.jpg"},
-  {name:"Jamaica",capital:"Kingston",continent:"North America",flag:"🇯🇲",color:"#007b40",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Jamaica_Blue_Mountains.jpg/640px-Jamaica_Blue_Mountains.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Kingston%2C_Jamaica.jpg/640px-Kingston%2C_Jamaica.jpg"},
-  {name:"Brazil",capital:"Brasília",continent:"South America",flag:"🇧🇷",color:"#009c3b",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Christ_the_Redeemer_-_Cristo_Redentor.jpg/640px-Christ_the_Redeemer_-_Cristo_Redentor.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Congresso_Nacional_do_Brasil.jpg/640px-Congresso_Nacional_do_Brasil.jpg"},
-  {name:"Argentina",capital:"Buenos Aires",continent:"South America",flag:"🇦🇷",color:"#74acdf",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Perito_Moreno_Glacier_Patagonia_Argentina_Luca_Galuzzi_2005.JPG/640px-Perito_Moreno_Glacier_Patagonia_Argentina_Luca_Galuzzi_2005.JPG",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Buenos_Aires_-_Obelisco.jpg/640px-Buenos_Aires_-_Obelisco.jpg"},
-  {name:"Peru",capital:"Lima",continent:"South America",flag:"🇵🇪",color:"#d91023",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Machu_Picchu%2C_Peru.jpg/640px-Machu_Picchu%2C_Peru.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Lima_Peru_Miraflores.jpg/640px-Lima_Peru_Miraflores.jpg"},
-  {name:"Colombia",capital:"Bogotá",continent:"South America",flag:"🇨🇴",color:"#fcd116",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Cartagena_de_Indias%2C_Colombia.jpg/640px-Cartagena_de_Indias%2C_Colombia.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Bogota_Colombia_Skyline.jpg/640px-Bogota_Colombia_Skyline.jpg"},
-  {name:"Chile",capital:"Santiago",continent:"South America",flag:"🇨🇱",color:"#d52b1e",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Torres_del_Paine_-_Chile.jpg/640px-Torres_del_Paine_-_Chile.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Santiago_desde_el_cerro_san_cristobal.jpg/640px-Santiago_desde_el_cerro_san_cristobal.jpg"},
-  {name:"Australia",capital:"Canberra",continent:"Oceania",flag:"🇦🇺",color:"#00008b",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sydney_Opera_House_from_Sydney_Cove.jpg/640px-Sydney_Opera_House_from_Sydney_Cove.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Australian_Parliament_House.jpg/640px-Australian_Parliament_House.jpg"},
-  {name:"New Zealand",capital:"Wellington",continent:"Oceania",flag:"🇳🇿",color:"#00247d",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Milford_Sound_from_Ferry.jpg/640px-Milford_Sound_from_Ferry.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Wellington_Harbour_New_Zealand.jpg/640px-Wellington_Harbour_New_Zealand.jpg"},
-  {name:"Fiji",capital:"Suva",continent:"Oceania",flag:"🇫🇯",color:"#68bfe5",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Fiji_aerial_Feb_2014.jpg/640px-Fiji_aerial_Feb_2014.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Suva_Harbour_Fiji.jpg/640px-Suva_Harbour_Fiji.jpg"},
-  {name:"Papua New Guinea",capital:"Port Moresby",continent:"Oceania",flag:"🇵🇬",color:"#ce1126",photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Bird_of_paradise_Papua_New_Guinea.jpg/640px-Bird_of_paradise_Papua_New_Guinea.jpg",capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Port_Moresby_2006.jpg/640px-Port_Moresby_2006.jpg"},
+  {name:"Nigeria",capital:"Abuja",continent:"Africa",flag:"🇳🇬",color:"#008751",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Zuma_Rock.jpg/640px-Zuma_Rock.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Pretoria_union_buildings.jpg/640px-Pretoria_union_buildings.jpg",
+   greeting:"Welcome to Nigeria, the giant of Africa!",
+   flagFact:"Nigeria's flag has green and white stripes — green for forests, white for peace.",
+   capitalFact:"Abuja is a brand-new city built to be Nigeria's capital in 1991!",
+   continentFact:"Africa is the second largest continent in the world!",
+   funFact:"Nigeria has more people than any other country in Africa — over 200 million!"},
+
+  {name:"Egypt",capital:"Cairo",continent:"Africa",flag:"🇪🇬",color:"#ce1126",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/All_Gizah_Pyramids.jpg/640px-All_Gizah_Pyramids.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Cairo_skyline_2010.jpg/640px-Cairo_skyline_2010.jpg",
+   greeting:"Welcome to Egypt, land of the amazing pyramids!",
+   flagFact:"Egypt's flag has red, white and black stripes with a golden eagle in the middle.",
+   capitalFact:"Cairo is one of the biggest cities in the whole world!",
+   continentFact:"Africa has the longest river in the world — the Nile!",
+   funFact:"The Great Pyramid was the tallest building on Earth for 3,800 years!"},
+
+  {name:"South Africa",capital:"Pretoria",continent:"Africa",flag:"🇿🇦",color:"#007a4d",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Table_Mountain_DavidDennis.jpg/640px-Table_Mountain_DavidDennis.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Pretoria_union_buildings.jpg/640px-Pretoria_union_buildings.jpg",
+   greeting:"Welcome to South Africa, the rainbow nation!",
+   flagFact:"South Africa's flag has six colours — the most colourful flag in the world!",
+   capitalFact:"Pretoria is called the Jacaranda City because purple trees bloom everywhere!",
+   continentFact:"Africa is home to the world's largest desert, the Sahara!",
+   funFact:"South Africa has three capital cities — no other country has that many!"},
+
+  {name:"Kenya",capital:"Nairobi",continent:"Africa",flag:"🇰🇪",color:"#006600",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Maasai_Mara_Landscape.JPG/640px-Maasai_Mara_Landscape.JPG",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Nairobi_satellites.jpg/640px-Nairobi_satellites.jpg",
+   greeting:"Welcome to Kenya, home of amazing wild animals!",
+   flagFact:"Kenya's flag is red, black and green with a Maasai shield in the middle.",
+   capitalFact:"Nairobi has a real national park with lions and giraffes right next to the city!",
+   continentFact:"Africa has more wild animals than anywhere else on Earth!",
+   funFact:"Giraffes can run as fast as 56 kilometres per hour — faster than a car in the city!"},
+
+  {name:"Ghana",capital:"Accra",continent:"Africa",flag:"🇬🇭",color:"#fcd116",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Cape_Coast_Castle.jpg/640px-Cape_Coast_Castle.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Accra_Ghana.jpg/640px-Accra_Ghana.jpg",
+   greeting:"Welcome to Ghana, the land of gold and cocoa!",
+   flagFact:"Ghana's flag has red, gold and green stripes with a black star for freedom.",
+   capitalFact:"Accra sits right on the Atlantic Ocean with beautiful sandy beaches!",
+   continentFact:"Africa has 54 countries — more than any other continent!",
+   funFact:"Ghana is one of the world's biggest growers of cocoa — used to make chocolate!"},
+
+  {name:"Morocco",capital:"Rabat",continent:"Africa",flag:"🇲🇦",color:"#c1272d",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Marrakesh_-_Djema_el-Fna_-_panoramio_%281%29.jpg/640px-Marrakesh_-_Djema_el-Fna_-_panoramio_%281%29.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Rabat_Hassan_Tower02.jpg/640px-Rabat_Hassan_Tower02.jpg",
+   greeting:"Welcome to Morocco, land of colourful markets!",
+   flagFact:"Morocco's flag is red with a green star — red means bravery and green means hope.",
+   capitalFact:"Rabat has an ancient tower called the Hassan Tower that is over 800 years old!",
+   continentFact:"Africa touches both the Atlantic and Indian oceans!",
+   funFact:"Morocco has colourful souks where you can find spices, carpets and lanterns!"},
+
+  {name:"Ethiopia",capital:"Addis Ababa",continent:"Africa",flag:"🇪🇹",color:"#078930",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lalibela.jpg/640px-Lalibela.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Meskel_Square%2C_Addis_Ababa.jpg/640px-Meskel_Square%2C_Addis_Ababa.jpg",
+   greeting:"Welcome to Ethiopia, one of the oldest countries on Earth!",
+   flagFact:"Ethiopia's flag is green, yellow and red — these colours inspired many African flags!",
+   capitalFact:"Addis Ababa means 'New Flower' in the Amharic language!",
+   continentFact:"The oldest human bones ever found were discovered in Africa!",
+   funFact:"Ethiopia has its own calendar with 13 months — it is like having a bonus month!"},
+
+  {name:"Tanzania",capital:"Dodoma",continent:"Africa",flag:"🇹🇿",color:"#1eb53a",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Kilimanjaro_from_amboseli.jpg/640px-Kilimanjaro_from_amboseli.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Dodoma_Tanzania.jpg/640px-Dodoma_Tanzania.jpg",
+   greeting:"Welcome to Tanzania, home of Africa's highest mountain!",
+   flagFact:"Tanzania's flag has green, black and blue with a yellow stripe across the middle.",
+   capitalFact:"Dodoma is a quiet and peaceful city surrounded by beautiful hills!",
+   continentFact:"Africa has the world's largest tropical rainforest after the Amazon!",
+   funFact:"Mount Kilimanjaro in Tanzania is the tallest mountain in all of Africa!"},
+
+  {name:"Senegal",capital:"Dakar",continent:"Africa",flag:"🇸🇳",color:"#00853f",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Senegal-Dakar-skyline.jpg/640px-Senegal-Dakar-skyline.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Dakar_Corniche.jpg/640px-Dakar_Corniche.jpg",
+   greeting:"Welcome to Senegal, the gateway to West Africa!",
+   flagFact:"Senegal's flag is green, yellow and red with a green star in the middle.",
+   capitalFact:"Dakar sits on a peninsula surrounded by the Atlantic Ocean on three sides!",
+   continentFact:"Africa has over 2,000 different languages spoken by its people!",
+   funFact:"Senegal is famous for its colourful painted buses called 'car rapides'!"},
+
+  {name:"Uganda",capital:"Kampala",continent:"Africa",flag:"🇺🇬",color:"#fcdc04",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Mountain_gorilla_Bwindi.jpg/640px-Mountain_gorilla_Bwindi.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Kampala_from_Old_Kampala.jpg/640px-Kampala_from_Old_Kampala.jpg",
+   greeting:"Welcome to Uganda, the pearl of Africa!",
+   flagFact:"Uganda's flag has black, yellow and red stripes with a grey crowned crane bird.",
+   capitalFact:"Kampala is built on seven hills, just like Rome in Italy!",
+   continentFact:"Africa has the world's largest land animal — the African elephant!",
+   funFact:"Half of all the mountain gorillas in the world live in Uganda!"},
+
+  {name:"China",capital:"Beijing",continent:"Asia",flag:"🇨🇳",color:"#de2910",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/20090529_great_wall_8248.jpg/640px-20090529_great_wall_8248.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Forbidden_City_Beijing_Shenwumen_Gate.JPG/640px-Forbidden_City_Beijing_Shenwumen_Gate.JPG",
+   greeting:"Welcome to China, home of the Great Wall!",
+   flagFact:"China's flag is red with one big yellow star and four small yellow stars.",
+   capitalFact:"Beijing's Forbidden City has 9,999 rooms — it is the world's largest palace!",
+   continentFact:"Asia is the biggest continent and has the most people!",
+   funFact:"The Great Wall of China is so long it would take 18 months to walk the whole thing!"},
+
+  {name:"Japan",capital:"Tokyo",continent:"Asia",flag:"🇯🇵",color:"#bc002d",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Fuji_san_from_Yamanakako_2004-10-30.jpg/640px-Fuji_san_from_Yamanakako_2004-10-30.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/640px-Skyscrapers_of_Shinjuku_2009_January.jpg",
+   greeting:"Welcome to Japan, land of sushi and Mount Fuji!",
+   flagFact:"Japan's flag is white with a big red circle — the circle means the rising sun!",
+   capitalFact:"Tokyo is the biggest city in the whole world with over 37 million people!",
+   continentFact:"Asia has the highest mountain on Earth — Mount Everest!",
+   funFact:"Japan has over 6,800 islands — that is a lot of islands to explore!"},
+
+  {name:"India",capital:"New Delhi",continent:"Asia",flag:"🇮🇳",color:"#ff9933",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Taj_Mahal%2C_Agra%2C_India_edit3.jpg/640px-Taj_Mahal%2C_Agra%2C_India_edit3.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/India_Gate_in_New_Delhi_03-2016.jpg/640px-India_Gate_in_New_Delhi_03-2016.jpg",
+   greeting:"Welcome to India, land of the magical Taj Mahal!",
+   flagFact:"India's flag has orange, white and green with a blue spinning wheel called the Ashoka Chakra.",
+   capitalFact:"New Delhi has India Gate — a giant arch built to honour brave soldiers!",
+   continentFact:"Asia has more people than all the other continents put together!",
+   funFact:"India invented the game of chess over 1,500 years ago!"},
+
+  {name:"South Korea",capital:"Seoul",continent:"Asia",flag:"🇰🇷",color:"#003478",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Gyeongbokgung.jpg/640px-Gyeongbokgung.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Seoul_from_Namsan_October_2017.jpg/640px-Seoul_from_Namsan_October_2017.jpg",
+   greeting:"Welcome to South Korea, land of K-pop and kimchi!",
+   flagFact:"South Korea's flag is white with a red and blue circle and four black symbols.",
+   capitalFact:"Seoul has the fastest internet in the world — great for playing games!",
+   continentFact:"Asia has more countries than any other continent in the world!",
+   funFact:"South Koreans eat kimchi — spicy fermented cabbage — with almost every meal!"},
+
+  {name:"Thailand",capital:"Bangkok",continent:"Asia",flag:"🇹🇭",color:"#a51931",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Wat_Phra_Kaew%2C_Bangkok.jpg/640px-Wat_Phra_Kaew%2C_Bangkok.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Bangkok_Montage.jpg/640px-Bangkok_Montage.jpg",
+   greeting:"Welcome to Thailand, the land of smiles!",
+   flagFact:"Thailand's flag has red, white and blue stripes — the blue stripe is for the king.",
+   capitalFact:"Bangkok has over 400 beautiful golden temples called wats!",
+   continentFact:"Asia has the world's longest coastline of any continent!",
+   funFact:"In Thailand it is considered rude to point your feet at someone — feet are kept low!"},
+
+  {name:"Indonesia",capital:"Jakarta",continent:"Asia",flag:"🇮🇩",color:"#ce1126",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Bali_Indonesia_%282%29.jpg/640px-Bali_Indonesia_%282%29.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Jakarta_Skyline_2017.jpg/640px-Jakarta_Skyline_2017.jpg",
+   greeting:"Welcome to Indonesia, the world's biggest island country!",
+   flagFact:"Indonesia's flag is red on top and white on the bottom — simple and bold!",
+   capitalFact:"Jakarta is built on land that was once a swamp next to the Java Sea!",
+   continentFact:"Asia contains the world's deepest lake — Lake Baikal in Russia!",
+   funFact:"Indonesia has over 17,000 islands — the most of any country in the world!"},
+
+  {name:"Vietnam",capital:"Hanoi",continent:"Asia",flag:"🇻🇳",color:"#da251d",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Ha_Long_Bay%2C_Vietnam.jpg/640px-Ha_Long_Bay%2C_Vietnam.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Hoan_Kiem_Lake_Hanoi.jpg/640px-Hoan_Kiem_Lake_Hanoi.jpg",
+   greeting:"Welcome to Vietnam, land of magical Ha Long Bay!",
+   flagFact:"Vietnam's flag is red with a yellow star — the star has five points for five groups of people.",
+   capitalFact:"Hanoi has a beautiful lake called Hoan Kiem with a tiny island and old temple!",
+   continentFact:"Asia has more rice paddies than any other continent in the world!",
+   funFact:"Ha Long Bay has over 1,600 limestone islands rising from the emerald green water!"},
+
+  {name:"Saudi Arabia",capital:"Riyadh",continent:"Asia",flag:"🇸🇦",color:"#006c35",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Madain_Saleh_Tombs.jpg/640px-Madain_Saleh_Tombs.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Kingdom_Centre_Riyadh.jpg/640px-Kingdom_Centre_Riyadh.jpg",
+   greeting:"Welcome to Saudi Arabia, land of golden deserts!",
+   flagFact:"Saudi Arabia's flag is green with a sword and Arabic writing meaning there is one God.",
+   capitalFact:"Riyadh has the Kingdom Centre tower with a sky bridge you can walk across!",
+   continentFact:"Asia has the world's largest country — Russia stretches across two continents!",
+   funFact:"Saudi Arabia has so much sand that it actually imports some sand from other countries!"},
+
+  {name:"Turkey",capital:"Ankara",continent:"Asia",flag:"🇹🇷",color:"#e30a17",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Hagia_Sophia_Mars_2013.jpg/640px-Hagia_Sophia_Mars_2013.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Ankara_Montaj.jpg/640px-Ankara_Montaj.jpg",
+   greeting:"Welcome to Turkey, where Europe meets Asia!",
+   flagFact:"Turkey's flag is red with a white crescent moon and star — the moon means bravery.",
+   capitalFact:"Ankara is a young capital city — Turkey moved its capital there in 1923!",
+   continentFact:"Turkey is one of only a few countries that sits on two different continents!",
+   funFact:"Turkey is where tulip flowers originally came from before they went to Holland!"},
+
+  {name:"Philippines",capital:"Manila",continent:"Asia",flag:"🇵🇭",color:"#0038a8",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Chocolate_Hills_overview.JPG/640px-Chocolate_Hills_overview.JPG",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Manila_montage.jpg/640px-Manila_montage.jpg",
+   greeting:"Welcome to the Philippines, land of 7,000 islands!",
+   flagFact:"The Philippines flag is blue and red with a white triangle and golden sun.",
+   capitalFact:"Manila is one of the most crowded cities in the world with millions of people!",
+   continentFact:"Asia has more volcanoes than any other continent!",
+   funFact:"The Philippines has Chocolate Hills — over 1,200 cone-shaped hills that turn brown!"},
+
+  {name:"Nepal",capital:"Kathmandu",continent:"Asia",flag:"🇳🇵",color:"#003893",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg/640px-Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Boudhanath_stupa.jpg/640px-Boudhanath_stupa.jpg",
+   greeting:"Welcome to Nepal, home of the world's highest mountain!",
+   flagFact:"Nepal has the only flag in the world that is not a rectangle — it is two triangles!",
+   capitalFact:"Kathmandu has the Boudhanath stupa — one of the biggest Buddhist shrines in the world!",
+   continentFact:"Eight of the world's ten tallest mountains are in Asia!",
+   funFact:"Mount Everest grows about 4 millimetres taller every single year!"},
+
+  {name:"Sri Lanka",capital:"Colombo",continent:"Asia",flag:"🇱🇰",color:"#8d153a",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Sigiriya.jpg/640px-Sigiriya.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Colombo_montage_2.jpg/640px-Colombo_montage_2.jpg",
+   greeting:"Welcome to Sri Lanka, the teardrop island of Asia!",
+   flagFact:"Sri Lanka's flag is dark red with a golden lion holding a sword — very royal!",
+   capitalFact:"Colombo is a busy port city where ships from all over the world come to visit!",
+   continentFact:"Asia produces most of the world's rice, tea and spices!",
+   funFact:"Sri Lanka grows some of the best tea in the world — over 300 million kilos every year!"},
+
+  {name:"UAE",capital:"Abu Dhabi",continent:"Asia",flag:"🇦🇪",color:"#00732f",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Dubai_Skyline_at_Night.jpg/640px-Dubai_Skyline_at_Night.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sheikh_Zayed_Grand_Mosque_-_Abu_Dhabi.jpg/640px-Sheikh_Zayed_Grand_Mosque_-_Abu_Dhabi.jpg",
+   greeting:"Welcome to the UAE, land of incredible skyscrapers!",
+   flagFact:"The UAE flag has green, white, black and red — all traditional Arab colours.",
+   capitalFact:"Abu Dhabi has the Sheikh Zayed Mosque — one of the most beautiful mosques in the world!",
+   continentFact:"Asia has more billionaires than any other continent in the world!",
+   funFact:"The Burj Khalifa in Dubai is the tallest building in the entire world!"},
+
+  {name:"Pakistan",capital:"Islamabad",continent:"Asia",flag:"🇵🇰",color:"#01411c",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Badshahi_Mosque_front.jpg/640px-Badshahi_Mosque_front.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Faisal_Mosque_Islamabad.jpg/640px-Faisal_Mosque_Islamabad.jpg",
+   greeting:"Welcome to Pakistan, land of mighty mountains!",
+   flagFact:"Pakistan's flag is green with a white stripe and a crescent moon and star.",
+   capitalFact:"Islamabad has the Faisal Mosque shaped like a giant desert tent — beautiful!",
+   continentFact:"Asia has the world's second tallest mountain — K2 is in Pakistan!",
+   funFact:"Pakistan has the world's second largest salt mine — it glows pink inside!"},
+
+  {name:"Israel",capital:"Jerusalem",continent:"Asia",flag:"🇮🇱",color:"#0038b8",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Dome_of_the_rock_Jerusalem.jpg/640px-Dome_of_the_rock_Jerusalem.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Jerusalem-2013%282%29.jpg/640px-Jerusalem-2013%282%29.jpg",
+   greeting:"Welcome to Israel, one of the world's most ancient lands!",
+   flagFact:"Israel's flag is white and blue with a Star of David in the middle.",
+   capitalFact:"Jerusalem is a very holy city for three different religions — Judaism, Christianity and Islam!",
+   continentFact:"Asia is where many of the world's oldest civilisations began thousands of years ago!",
+   funFact:"The Dead Sea in Israel is so salty you float on top of it without even swimming!"},
+
+  {name:"Bangladesh",capital:"Dhaka",continent:"Asia",flag:"🇧🇩",color:"#006a4e",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Sundarbans_Tiger.jpg/640px-Sundarbans_Tiger.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Dhaka_Skyline_2018.jpg/640px-Dhaka_Skyline_2018.jpg",
+   greeting:"Welcome to Bangladesh, land of rivers and tigers!",
+   flagFact:"Bangladesh's flag is green with a red circle — the circle represents the rising sun.",
+   capitalFact:"Dhaka is one of the fastest-growing cities in the whole world!",
+   continentFact:"Asia has more rivers and waterways than any other continent!",
+   funFact:"Bangladesh has the Sundarbans — the world's largest mangrove forest, home to Bengal tigers!"},
+
+  {name:"France",capital:"Paris",continent:"Europe",flag:"🇫🇷",color:"#002395",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/640px-Tour_Eiffel_Wikimedia_Commons.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Paris_Night.jpg/640px-Paris_Night.jpg",
+   greeting:"Welcome to France, home of the amazing Eiffel Tower!",
+   flagFact:"France's flag has three stripes — blue, white and red called the tricolore.",
+   capitalFact:"Paris is called the City of Light and has the most visited museum in the world!",
+   continentFact:"Europe has more countries packed into a small area than anywhere else!",
+   funFact:"France is the most visited country in the world — over 90 million visitors every year!"},
+
+  {name:"Germany",capital:"Berlin",continent:"Europe",flag:"🇩🇪",color:"#ffcc00",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Neuschwanstein_Castle_SW_view.jpg/640px-Neuschwanstein_Castle_SW_view.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Brandenburger_Tor_abends.jpg/640px-Brandenburger_Tor_abends.jpg",
+   greeting:"Welcome to Germany, land of fairy-tale castles!",
+   flagFact:"Germany's flag has three horizontal stripes — black on top, red in the middle, gold at the bottom.",
+   capitalFact:"Berlin has the famous Brandenburg Gate — a giant arch that is over 200 years old!",
+   continentFact:"Europe has more rivers that freeze in winter than any other continent!",
+   funFact:"Neuschwanstein Castle in Germany inspired the Disney Sleeping Beauty castle!"},
+
+  {name:"Italy",capital:"Rome",continent:"Europe",flag:"🇮🇹",color:"#009246",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg/640px-Colosseum_in_Rome%2C_Italy_-_April_2007.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/640px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg",
+   greeting:"Welcome to Italy, home of pizza, pasta and ancient Rome!",
+   flagFact:"Italy's flag has green, white and red stripes — the same colours as the Italian countryside.",
+   capitalFact:"Rome has the Trevi Fountain where people throw coins to make a wish!",
+   continentFact:"Europe has given the world amazing food — pasta, croissants, fish and chips!",
+   funFact:"Italy is shaped like a boot — look at a map and you can see it kicking Sicily!"},
+
+  {name:"Spain",capital:"Madrid",continent:"Europe",flag:"🇪🇸",color:"#c60b1e",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Sagrada_Familia_01.jpg/640px-Sagrada_Familia_01.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Madrid_calle_Gran_Via_3.jpg/640px-Madrid_calle_Gran_Via_3.jpg",
+   greeting:"Welcome to Spain, land of flamenco and sunshine!",
+   flagFact:"Spain's flag has red and yellow stripes with a coat of arms in the middle.",
+   capitalFact:"Madrid is the highest capital city in all of Europe — it sits on a big plateau!",
+   continentFact:"Europe has the shortest coastline of any continent in the world!",
+   funFact:"Spain's Sagrada Familia church has been under construction for over 140 years!"},
+
+  {name:"United Kingdom",capital:"London",continent:"Europe",flag:"🇬🇧",color:"#012169",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Big_Ben_from_the_south%2C_Victoria_Embankment.jpg/640px-Big_Ben_from_the_south%2C_Victoria_Embankment.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/London_Eye_2011.jpg/640px-London_Eye_2011.jpg",
+   greeting:"Welcome to the United Kingdom, home of Big Ben and the Queen!",
+   flagFact:"The UK flag is called the Union Jack and combines three different crosses.",
+   capitalFact:"London has a giant wheel called the London Eye where you can see the whole city!",
+   continentFact:"Europe invented the Olympic Games in Ancient Greece thousands of years ago!",
+   funFact:"The Queen of England owns all the swans in the River Thames!"},
+
+  {name:"Greece",capital:"Athens",continent:"Europe",flag:"🇬🇷",color:"#0d5eaf",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/The_Parthenon_in_Athens.jpg/640px-The_Parthenon_in_Athens.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Athens_Syntagma_square.jpg/640px-Athens_Syntagma_square.jpg",
+   greeting:"Welcome to Greece, birthplace of the Olympic Games!",
+   flagFact:"Greece's flag has blue and white stripes with a cross — blue and white are the sea and clouds.",
+   capitalFact:"Athens is one of the world's oldest cities — people have lived there for 7,000 years!",
+   continentFact:"Europe is where democracy and the Olympics were invented in Ancient Greece!",
+   funFact:"Greece has over 6,000 islands but only about 200 people actually live on them!"},
+
+  {name:"Portugal",capital:"Lisbon",continent:"Europe",flag:"🇵🇹",color:"#006600",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Belem_Tower_June_2013-1.jpg/640px-Belem_Tower_June_2013-1.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Lisboa_montagem.jpg/640px-Lisboa_montagem.jpg",
+   greeting:"Welcome to Portugal, land of brave explorers and the sea!",
+   flagFact:"Portugal's flag is green and red with a golden shield and armillary sphere.",
+   capitalFact:"Lisbon has yellow trams that travel up and down its very hilly streets!",
+   continentFact:"European explorers sailed around the whole world 500 years ago!",
+   funFact:"Portugal is the world's biggest producer of cork — used in wine bottles!"},
+
+  {name:"Netherlands",capital:"Amsterdam",continent:"Europe",flag:"🇳🇱",color:"#ae1c28",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Keukenhof_Lisse_04.jpg/640px-Keukenhof_Lisse_04.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Amsterdam_September_2011_%284%29.jpg/640px-Amsterdam_September_2011_%284%29.jpg",
+   greeting:"Welcome to the Netherlands, land of tulips and windmills!",
+   flagFact:"The Netherlands flag has red, white and blue horizontal stripes.",
+   capitalFact:"Amsterdam has more bicycles than people — everyone cycles everywhere!",
+   continentFact:"Europe has some of the flattest land in the world in the Netherlands!",
+   funFact:"A quarter of the Netherlands is below sea level — big walls called dykes keep the sea out!"},
+
+  {name:"Sweden",capital:"Stockholm",continent:"Europe",flag:"🇸🇪",color:"#006aa7",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Stockholm_-_Riddarholmen_%28CanonEOS_DSLR%29.jpg/640px-Stockholm_-_Riddarholmen_%28CanonEOS_DSLR%29.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Stockholm_Old_Town.jpg/640px-Stockholm_Old_Town.jpg",
+   greeting:"Welcome to Sweden, land of northern lights and LEGO!",
+   flagFact:"Sweden's flag is blue with a yellow cross — the cross represents Christianity.",
+   capitalFact:"Stockholm is built on 14 islands connected by 57 bridges!",
+   continentFact:"Northern Europe has the northern lights — colourful lights in the sky at night!",
+   funFact:"IKEA, Spotify and Minecraft were all invented in Sweden!"},
+
+  {name:"Norway",capital:"Oslo",continent:"Europe",flag:"🇳🇴",color:"#ef2b2d",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Geiranger_fjord%2C_Norway.jpg/640px-Geiranger_fjord%2C_Norway.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Oslo_Opera_House%2C_Norway.jpg/640px-Oslo_Opera_House%2C_Norway.jpg",
+   greeting:"Welcome to Norway, land of fjords and northern lights!",
+   flagFact:"Norway's flag is red with a blue and white cross — very bold and colourful!",
+   capitalFact:"Oslo's Opera House has a roof you can walk on right down to the water!",
+   continentFact:"Europe has some of the most dramatic fjords and coastlines in the world!",
+   funFact:"In Norway during summer the sun never fully sets — it stays light all night long!"},
+
+  {name:"United States",capital:"Washington D.C.",continent:"North America",flag:"🇺🇸",color:"#b22234",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Grand_Canyon_Horse_Shoe_Bend_MC.jpg/640px-Grand_Canyon_Horse_Shoe_Bend_MC.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Lincoln_Memorial_reflection_on_water.jpg/640px-Lincoln_Memorial_reflection_on_water.jpg",
+   greeting:"Welcome to the USA, land of the Grand Canyon and superheroes!",
+   flagFact:"The USA flag has 50 stars for 50 states and 13 red and white stripes.",
+   capitalFact:"Washington D.C. has the Lincoln Memorial — a giant statue of President Lincoln!",
+   continentFact:"North America has the world's largest freshwater lake system — the Great Lakes!",
+   funFact:"The Grand Canyon is so big it would take a whole week to hike from top to bottom!"},
+
+  {name:"Canada",capital:"Ottawa",continent:"North America",flag:"🇨🇦",color:"#ff0000",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Niagara_Falls_fromCanadianSide_February2018.jpg/640px-Niagara_Falls_fromCanadianSide_February2018.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Parliament_Hill_Ottawa_Ontario_Canada.jpg/640px-Parliament_Hill_Ottawa_Ontario_Canada.jpg",
+   greeting:"Welcome to Canada, land of maple syrup and Niagara Falls!",
+   flagFact:"Canada's flag is red and white with a maple leaf — the leaf is the symbol of Canada.",
+   capitalFact:"Ottawa has the world's largest naturally frozen skating rink in winter!",
+   continentFact:"North America has the world's most powerful waterfall — Niagara Falls!",
+   funFact:"Canada is the second largest country in the world but has only 38 million people!"},
+
+  {name:"Mexico",capital:"Mexico City",continent:"North America",flag:"🇲🇽",color:"#006847",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Chichen_Itza_3.jpg/640px-Chichen_Itza_3.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Angel_de_la_independencia_Mexico_City.jpg/640px-Angel_de_la_independencia_Mexico_City.jpg",
+   greeting:"Welcome to Mexico, land of ancient pyramids and tacos!",
+   flagFact:"Mexico's flag is green, white and red with an eagle eating a snake in the middle.",
+   capitalFact:"Mexico City is one of the biggest cities in the world and sinks a little every year!",
+   continentFact:"North America was home to the Aztec and Maya civilisations thousands of years ago!",
+   funFact:"Mexico gave the world chocolate, tomatoes, avocados and chilli peppers!"},
+
+  {name:"Cuba",capital:"Havana",continent:"North America",flag:"🇨🇺",color:"#002a8f",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Havana_from_Cabana.jpg/640px-Havana_from_Cabana.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Malecon_Havana_Cuba.jpg/640px-Malecon_Havana_Cuba.jpg",
+   greeting:"Welcome to Cuba, island of music and colourful old cars!",
+   flagFact:"Cuba's flag has blue and white stripes with a red triangle and white star.",
+   capitalFact:"Havana has a famous seaside road called the Malecón where people love to walk!",
+   continentFact:"The Caribbean in North America has some of the most beautiful beaches on Earth!",
+   funFact:"Cuba has thousands of vintage cars from the 1950s still driving around today!"},
+
+  {name:"Jamaica",capital:"Kingston",continent:"North America",flag:"🇯🇲",color:"#007b40",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Jamaica_Blue_Mountains.jpg/640px-Jamaica_Blue_Mountains.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Kingston%2C_Jamaica.jpg/640px-Kingston%2C_Jamaica.jpg",
+   greeting:"Welcome to Jamaica, island of reggae music and sunshine!",
+   flagFact:"Jamaica's flag is black, green and gold with a diagonal cross — the only flag with no red, white or blue!",
+   capitalFact:"Kingston has the Blue Mountains right behind it — great for growing delicious coffee!",
+   continentFact:"The Caribbean islands were formed by volcanoes millions of years ago!",
+   funFact:"Usain Bolt from Jamaica is the fastest human being in the history of the world!"},
+
+  {name:"Brazil",capital:"Brasília",continent:"South America",flag:"🇧🇷",color:"#009c3b",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Christ_the_Redeemer_-_Cristo_Redentor.jpg/640px-Christ_the_Redeemer_-_Cristo_Redentor.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Congresso_Nacional_do_Brasil.jpg/640px-Congresso_Nacional_do_Brasil.jpg",
+   greeting:"Welcome to Brazil, land of the Amazon rainforest and carnival!",
+   flagFact:"Brazil's flag is green with a yellow diamond and blue circle with stars and a white band.",
+   capitalFact:"Brasília was built from nothing in just four years — a brand new city!",
+   continentFact:"South America has the world's largest rainforest — the Amazon!",
+   funFact:"The Amazon River releases so much water it makes the sea less salty for 100 miles!"},
+
+  {name:"Argentina",capital:"Buenos Aires",continent:"South America",flag:"🇦🇷",color:"#74acdf",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Perito_Moreno_Glacier_Patagonia_Argentina_Luca_Galuzzi_2005.JPG/640px-Perito_Moreno_Glacier_Patagonia_Argentina_Luca_Galuzzi_2005.JPG",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Buenos_Aires_-_Obelisco.jpg/640px-Buenos_Aires_-_Obelisco.jpg",
+   greeting:"Welcome to Argentina, land of tango and Patagonia!",
+   flagFact:"Argentina's flag is pale blue and white with a golden sun with a face in the middle.",
+   capitalFact:"Buenos Aires has the widest street in the world — it has 16 lanes of traffic!",
+   continentFact:"South America has the world's longest mountain range — the Andes!",
+   funFact:"Argentina has a glacier called Perito Moreno that makes a huge cracking sound as it moves!"},
+
+  {name:"Peru",capital:"Lima",continent:"South America",flag:"🇵🇪",color:"#d91023",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Machu_Picchu%2C_Peru.jpg/640px-Machu_Picchu%2C_Peru.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Lima_Peru_Miraflores.jpg/640px-Lima_Peru_Miraflores.jpg",
+   greeting:"Welcome to Peru, home of the magical Machu Picchu!",
+   flagFact:"Peru's flag has red and white vertical stripes — simple and striking.",
+   capitalFact:"Lima sits right on the Pacific Ocean and has amazing food from the sea!",
+   continentFact:"South America is home to the Inca Empire — one of the greatest civilisations ever!",
+   funFact:"Machu Picchu was lost to the outside world for 400 years until 1911!"},
+
+  {name:"Colombia",capital:"Bogotá",continent:"South America",flag:"🇨🇴",color:"#fcd116",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Cartagena_de_Indias%2C_Colombia.jpg/640px-Cartagena_de_Indias%2C_Colombia.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Bogota_Colombia_Skyline.jpg/640px-Bogota_Colombia_Skyline.jpg",
+   greeting:"Welcome to Colombia, land of coffee and colourful cities!",
+   flagFact:"Colombia's flag has yellow, blue and red horizontal stripes — yellow is the biggest stripe.",
+   capitalFact:"Bogotá is one of the highest capital cities in the world — it is very cold up there!",
+   continentFact:"South America produces more coffee than any other continent in the world!",
+   funFact:"Colombia is the only country in South America with a coast on both the Pacific and Atlantic!"},
+
+  {name:"Chile",capital:"Santiago",continent:"South America",flag:"🇨🇱",color:"#d52b1e",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Torres_del_Paine_-_Chile.jpg/640px-Torres_del_Paine_-_Chile.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Santiago_desde_el_cerro_san_cristobal.jpg/640px-Santiago_desde_el_cerro_san_cristobal.jpg",
+   greeting:"Welcome to Chile, the longest and thinnest country in the world!",
+   flagFact:"Chile's flag has red, white and blue with a white star — similar to the Texas flag!",
+   capitalFact:"Santiago has the snow-capped Andes mountains visible right from the city!",
+   continentFact:"South America has the world's driest desert — the Atacama in Chile!",
+   funFact:"Chile is so long it stretches through seven climate zones — from desert to ice!"},
+
+  {name:"Australia",capital:"Canberra",continent:"Oceania",flag:"🇦🇺",color:"#00008b",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sydney_Opera_House_from_Sydney_Cove.jpg/640px-Sydney_Opera_House_from_Sydney_Cove.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Australian_Parliament_House.jpg/640px-Australian_Parliament_House.jpg",
+   greeting:"Welcome to Australia, land of kangaroos and the Opera House!",
+   flagFact:"Australia's flag is dark blue with the Union Jack and the Southern Cross stars.",
+   capitalFact:"Canberra was specially built to be the capital — Sydney and Melbourne both wanted the job!",
+   continentFact:"Oceania has the Great Barrier Reef — the world's biggest coral reef!",
+   funFact:"Australia has more kangaroos than people — about 50 million kangaroos live there!"},
+
+  {name:"New Zealand",capital:"Wellington",continent:"Oceania",flag:"🇳🇿",color:"#00247d",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Milford_Sound_from_Ferry.jpg/640px-Milford_Sound_from_Ferry.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Wellington_Harbour_New_Zealand.jpg/640px-Wellington_Harbour_New_Zealand.jpg",
+   greeting:"Welcome to New Zealand, land of Lord of the Rings and kiwi birds!",
+   flagFact:"New Zealand's flag has the Union Jack and four red stars called the Southern Cross.",
+   capitalFact:"Wellington is the windiest city in the world — it is always very breezy!",
+   continentFact:"Oceania has more types of unique animals than almost anywhere else on Earth!",
+   funFact:"New Zealand was the first country in the world to give women the right to vote in 1893!"},
+
+  {name:"Fiji",capital:"Suva",continent:"Oceania",flag:"🇫🇯",color:"#68bfe5",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Fiji_aerial_Feb_2014.jpg/640px-Fiji_aerial_Feb_2014.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Suva_Harbour_Fiji.jpg/640px-Suva_Harbour_Fiji.jpg",
+   greeting:"Welcome to Fiji, paradise island of the Pacific Ocean!",
+   flagFact:"Fiji's flag is light blue with the Union Jack and a shield with sugar cane and a dove.",
+   capitalFact:"Suva is a busy tropical harbour where boats sail in from all across the Pacific!",
+   continentFact:"Oceania has over 25,000 islands spread across the Pacific Ocean!",
+   funFact:"Fiji has over 300 islands and the water is so clear you can see the sea floor!"},
+
+  {name:"Papua New Guinea",capital:"Port Moresby",continent:"Oceania",flag:"🇵🇬",color:"#ce1126",
+   photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Bird_of_paradise_Papua_New_Guinea.jpg/640px-Bird_of_paradise_Papua_New_Guinea.jpg",
+   capitalPhoto:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Port_Moresby_2006.jpg/640px-Port_Moresby_2006.jpg",
+   greeting:"Welcome to Papua New Guinea, land of amazing birds and tribes!",
+   flagFact:"Papua New Guinea's flag is red and black with yellow birds of paradise and the Southern Cross.",
+   capitalFact:"Port Moresby sits on a beautiful harbour on the Coral Sea!",
+   continentFact:"Papua New Guinea has over 800 different languages — more than anywhere else on Earth!",
+   funFact:"Papua New Guinea has over 700 species of birds including the spectacular bird of paradise!"},
 ];
 
-let visited={},currentCountry=null,currentStep=0,currentFacts=null,selectedContinent=null;
-document.getElementById('total-count').textContent=COUNTRIES.length;
+let visited={}, currentCountry=null, currentStep=0, selectedContinent=null;
+document.getElementById('total-count').textContent = COUNTRIES.length;
 
 function showView(v){
   ['map','country','passport'].forEach(x=>{
     const el=document.getElementById(x+'-view');
-    el.style.display=x===v?(x==='country'?'flex':'block'):'none';
+    el.style.display = x===v ? (x==='country'?'flex':'block') : 'none';
   });
-  document.getElementById('btn-map').style.background=v==='map'?'#ff6b35':'rgba(255,255,255,.1)';
-  document.getElementById('btn-passport').style.background=v==='passport'?'#ff6b35':'rgba(255,255,255,.1)';
-  if(v==='passport')renderPassport();
+  document.getElementById('btn-map').style.background = v==='map'?'#ff6b35':'rgba(255,255,255,.1)';
+  document.getElementById('btn-passport').style.background = v==='passport'?'#ff6b35':'rgba(255,255,255,.1)';
+  if(v==='passport') renderPassport();
 }
 
 function renderMap(){
@@ -229,24 +615,22 @@ function renderMap(){
     const done=COUNTRIES.filter(c=>c.continent===cont&&visited[c.name]).length;
     const total=COUNTRIES.filter(c=>c.continent===cont).length;
     const active=selectedContinent===cont;
-    const p=document.createElement('div');
-    p.className='pill';
+    const p=document.createElement('div'); p.className='pill';
     p.style.borderColor=active?CONTINENT_COLORS[cont]:'rgba(255,255,255,.12)';
     p.style.background=active?CONTINENT_COLORS[cont]+'44':'rgba(255,255,255,.07)';
-    if(active)p.style.transform='scale(1.05)';
+    if(active) p.style.transform='scale(1.05)';
     p.innerHTML=`${CONTINENT_GEMS[cont]} ${cont} <span style="opacity:.65">${done}/${total}</span>`;
-    p.onclick=()=>{selectedContinent=active?null:cont;renderMap();};
+    p.onclick=()=>{selectedContinent=active?null:cont; renderMap();};
     pills.appendChild(p);
   });
   const grid=document.getElementById('countries-grid');
   grid.innerHTML='';
   (selectedContinent?COUNTRIES.filter(c=>c.continent===selectedContinent):COUNTRIES).forEach(country=>{
     const isV=!!visited[country.name];
-    const card=document.createElement('div');
-    card.className='country-card';
+    const card=document.createElement('div'); card.className='country-card';
     card.style.border=`2px solid ${isV?country.color:'rgba(255,255,255,.1)'}`;
     card.style.background=isV?`linear-gradient(160deg,${country.color}44,${country.color}18)`:'rgba(255,255,255,.05)';
-    if(isV)card.style.boxShadow=`0 0 16px ${country.color}55`;
+    if(isV) card.style.boxShadow=`0 0 16px ${country.color}55`;
     card.innerHTML=`
       <div class="card-thumb" style="background:${country.color}33">
         <div class="fallback">${country.flag}</div>
@@ -266,37 +650,13 @@ function renderMap(){
   });
 }
 
-async function visitCountry(country){
-  currentCountry=country;currentStep=0;currentFacts=null;
-  showView('country');
-  document.getElementById('loading-card').style.display='block';
-  document.getElementById('error-card').style.display='none';
-  document.getElementById('step-container').style.display='none';
-  document.getElementById('loading-text').textContent=`Flutter is flying to ${country.name}...`;
+function visitCountry(country){
+  currentCountry=country; currentStep=0;
   document.getElementById('train-body').setAttribute('fill',country.color);
   document.getElementById('train-cab').setAttribute('fill',country.color);
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,
-        messages:[{role:'user',content:`Flutter butterfly guide for kids 4-6. Facts about ${country.name} (capital:${country.capital}, continent:${country.continent}). Return ONLY JSON no markdown: {"greeting":"exciting welcome max 12 words","flagFact":"flag sentence max 15 words","capitalFact":"fun ${country.capital} sentence max 15 words","continentFact":"${country.continent} sentence max 12 words","funFact":"wow fact max 20 words"}`}]
-      })
-    });
-    const d=await res.json();
-    const t=d.content.filter(b=>b.type==='text').map(b=>b.text).join('');
-    currentFacts=JSON.parse(t.replace(/```json|```/g,'').trim());
-    document.getElementById('loading-card').style.display='none';
-    document.getElementById('step-container').style.display='flex';
-    renderStep();
-  }catch(e){
-    document.getElementById('loading-card').style.display='none';
-    document.getElementById('error-card').style.display='block';
-    document.getElementById('error-text').textContent=`Oops! Couldn't load ${country.name}. Check your internet and try again. 🚂`;
-  }
+  showView('country');
+  renderStep();
 }
-
-function retryVisit(){if(currentCountry)visitCountry(currentCountry);}
 
 function photoBlock(src,caption,flag){
   return `<div class="photo-wrap">
@@ -310,37 +670,38 @@ function photoBlock(src,caption,flag){
 }
 
 function renderStep(){
-  const c=currentCountry,f=currentFacts,cc=CONTINENT_COLORS[c.continent];
+  const c=currentCountry, cc=CONTINENT_COLORS[c.continent];
   const cont=document.getElementById('step-container');
   let html='';
+
   if(currentStep===0){
     html=`<div class="step-card" style="background:linear-gradient(160deg,${c.color}28,rgba(255,255,255,.03));border:3px solid ${c.color}">
       ${photoBlock(c.photo,`📸 A famous sight in ${c.name}`,c.flag)}
-      <div class="step-body"><div style="font-size:56px">${c.flag}</div><div style="font-size:24px;margin-top:6px">${c.name}</div><div class="step-text" style="margin-top:10px;opacity:.93">${f.greeting}</div></div>
+      <div class="step-body"><div style="font-size:56px">${c.flag}</div><div style="font-size:24px;margin-top:6px">${c.name}</div><div class="step-text" style="margin-top:10px;opacity:.93">${c.greeting}</div></div>
     </div>`;
-  }else if(currentStep===1){
+  } else if(currentStep===1){
     html=`<div class="step-card" style="background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.14);padding:24px 20px;text-align:center">
       <div class="step-label">🚩 The Flag</div><div style="font-size:96px">${c.flag}</div>
-      <div class="step-text" style="margin-top:14px">${f.flagFact}</div>
+      <div class="step-text" style="margin-top:14px">${c.flagFact}</div>
     </div>`;
-  }else if(currentStep===2){
+  } else if(currentStep===2){
     html=`<div class="step-card" style="background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.14)">
       ${photoBlock(c.capitalPhoto,`🏙️ ${c.capital} — capital of ${c.name}`,c.flag)}
-      <div class="step-body"><div class="step-label">🏙️ Capital City</div><div style="font-size:28px;color:#ffd700">${c.capital}</div><div class="step-text" style="margin-top:10px">${f.capitalFact}</div></div>
+      <div class="step-body"><div class="step-label">🏙️ Capital City</div><div style="font-size:28px;color:#ffd700">${c.capital}</div><div class="step-text" style="margin-top:10px">${c.capitalFact}</div></div>
     </div>`;
-  }else if(currentStep===3){
+  } else if(currentStep===3){
     html=`<div class="step-card" style="background:linear-gradient(160deg,${cc}20,rgba(255,255,255,.03));border:2px solid ${cc};padding:24px 20px;text-align:center">
       <div class="step-label">🌍 Continent</div>
       <div style="font-size:52px;animation:bounce 1.5s ease-in-out infinite">${CONTINENT_GEMS[c.continent]}</div>
       <div style="font-size:26px;color:${cc};margin-top:6px">${c.continent}</div>
-      <div class="step-text" style="margin-top:12px">${f.continentFact}</div>
+      <div class="step-text" style="margin-top:12px">${c.continentFact}</div>
     </div>`;
-  }else if(currentStep===4){
+  } else if(currentStep===4){
     html=`<div class="step-card" style="background:linear-gradient(160deg,#7c3aed28,#db277718);border:2px solid #a855f7">
       ${photoBlock(c.photo,`🤩 Amazing ${c.name}!`,c.flag)}
-      <div class="step-body"><div class="step-label">🎉 Wow Fact!</div><div style="font-size:44px;animation:bounce 1s ease-in-out infinite">🤩</div><div class="step-text" style="margin-top:12px">${f.funFact}</div></div>
+      <div class="step-body"><div class="step-label">🎉 Wow Fact!</div><div style="font-size:44px;animation:bounce 1s ease-in-out infinite">🤩</div><div class="step-text" style="margin-top:12px">${c.funFact}</div></div>
     </div>`;
-  }else if(currentStep===5){
+  } else if(currentStep===5){
     const total=COUNTRIES.filter(x=>x.continent===c.continent).length;
     const done=COUNTRIES.filter(x=>x.continent===c.continent&&visited[x.name]).length;
     html=`<div class="step-card" style="text-align:center;padding:10px 0;background:transparent;overflow:visible;border:none">
@@ -351,6 +712,7 @@ function renderStep(){
       ${done+1===total?`<div style="margin-top:16px;background:rgba(255,215,0,.13);border:2px solid gold;border-radius:18px;padding:12px 18px;font-size:14px;font-family:'Nunito',sans-serif;animation:burst .5s ease forwards">${CONTINENT_GEMS[c.continent]} You collected the ${c.continent} gem! 🎉</div>`:''}
     </div>`;
   }
+
   const labels=['🚩 See the Flag!','🏙️ Capital City!','🌍 Continent!','🤩 Wow Fact!','📖 Get Stamp!','🗺️ Next Station!'];
   html+=`<div style="display:flex;justify-content:center;width:100%">
     <button class="action-btn" style="background:${currentStep===5?'linear-gradient(135deg,#ff6b35,#f7931e)':`linear-gradient(135deg,${c.color},${c.color}99)`}" onclick="stepAction()">${labels[currentStep]}</button>
@@ -363,9 +725,15 @@ function renderStep(){
 
 function stepAction(){
   if(currentStep<5){
-    if(currentStep===4){visited[currentCountry.name]=true;document.getElementById('visit-count').textContent=Object.keys(visited).length;renderMap();}
-    currentStep++;renderStep();
-  }else{showView('map');}
+    if(currentStep===4){
+      visited[currentCountry.name]=true;
+      document.getElementById('visit-count').textContent=Object.keys(visited).length;
+      renderMap();
+    }
+    currentStep++; renderStep();
+  } else {
+    showView('map');
+  }
 }
 
 function stampHTML(country,size){
@@ -381,12 +749,11 @@ function renderPassport(){
   document.getElementById('passport-count').textContent=vc;
   document.getElementById('stamp-count').textContent=vc;
   const continents=[...new Set(COUNTRIES.map(c=>c.continent))];
-  const gg=document.getElementById('gems-grid');
-  gg.innerHTML='';
+  const gg=document.getElementById('gems-grid'); gg.innerHTML='';
   continents.forEach(cont=>{
     const done=COUNTRIES.filter(c=>c.continent===cont&&visited[c.name]).length;
     const total=COUNTRIES.filter(c=>c.continent===cont).length;
-    const unlocked=done===total,cc=CONTINENT_COLORS[cont];
+    const unlocked=done===total, cc=CONTINENT_COLORS[cont];
     const g=document.createElement('div');
     g.style.cssText=`display:flex;align-items:center;gap:5px;background:${unlocked?cc+'2a':'rgba(255,255,255,.04)'};border:1.5px solid ${unlocked?cc:'rgba(255,255,255,.1)'};border-radius:12px;padding:5px 10px;font-size:11px;font-family:'Nunito',sans-serif`;
     g.innerHTML=`<span style="font-size:15px;filter:${unlocked?'none':'grayscale(1)'}">${CONTINENT_GEMS[cont]}</span><div><div style="font-weight:700;font-size:10px">${cont}</div><div style="opacity:.6;font-size:9px">${done}/${total}</div></div>`;
@@ -396,7 +763,7 @@ function renderPassport(){
   const vl=COUNTRIES.filter(c=>visited[c.name]);
   if(!vl.length){
     sg.innerHTML=`<div style="text-align:center;padding:28px;opacity:.4;font-family:'Nunito',sans-serif;font-size:13px;width:100%">No stamps yet! Visit your first country. 🚂</div>`;
-  }else{
+  } else {
     sg.innerHTML='';
     vl.forEach(c=>{const s=document.createElement('div');s.innerHTML=stampHTML(c,60);s.title=c.name;s.style.cursor='pointer';s.onclick=()=>visitCountry(c);sg.appendChild(s);});
   }
