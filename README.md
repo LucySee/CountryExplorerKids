@@ -24,7 +24,7 @@ A fun, interactive geography app for children aged 4–6. Hop aboard Flutter the
 
 ## 🚀 Live Demo
 
-👉 **[Play now on GitHub Pages](https://yourusername.github.io/country-explorer-kids)**
+👉 **[Play now on GitHub Pages](https://LucySee.github.io/CountryExplorerKids)**
 
 ---
 
