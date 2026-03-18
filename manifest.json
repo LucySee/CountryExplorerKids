@@ -1,0 +1,46 @@
+{
+  "name": "Country Explorer Kids",
+  "short_name": "CountryExplorer",
+  "description": "Fun interactive world geography for kids aged 4-6. Explore 50 countries, learn flags, capitals and fun facts with Flutter the butterfly!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#1a1a2e",
+  "orientation": "portrait",
+  "categories": ["education", "kids"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/map.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "label": "World Map — browse all 50 countries"
+    },
+    {
+      "src": "screenshots/country.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "label": "Country Explorer — learn flags, capitals & fun facts"
+    },
+    {
+      "src": "screenshots/passport.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "label": "Passport — collect stamps from every country"
+    }
+  ]
+}
